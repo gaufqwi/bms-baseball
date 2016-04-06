@@ -31,11 +31,14 @@ window.onload = function () {
         
     };
     
+    // Function to do specific jobs
+    
+    
     // Don't edit below here
     game = new Phaser.Game(800, 600, Phaser.AUTO,
         'main', {
             preload: preload, 
             create: create,
-            update
+            update: update
         });
 };
