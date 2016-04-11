@@ -55,7 +55,13 @@ var init = function () {
     // Preload assets
     // game.load.whatever functions
     var preload = function () {
-        // Preload all images
+        // **Preload all images - Nathan
+        game.load.image('baseballfield','assets/sprites/baseballfield.png')
+        game.load.image('batterup', "assets/sprites/batterup.png")
+        game.load.image('pinebutton','assets/sprites/pinebutton.png')
+        game.load.image('player','assets/sprites/player.png')
+        game.load.image('qboard','assets/sprites/qboard.png')
+        game.load.image('scoreboard','assets/sprites/scoreboard.png')
     };
     
     // Draw initial screen
@@ -65,14 +71,20 @@ var init = function () {
         answerKeys[2] = game.input.keyboard.addKey(Phaser.Keyboard.C);
         answerKeys[3] = game.input.keyboard.addKey(Phaser.Keyboard.D);
         
-        // **Add diamond image to world; make it 800 by 600
+        // **Add diamond image to world; make it 800 by 600 - Moziah
 
-        // **Use a loop to add 4 players to the players array
+        // **Use a loop to add 4 players to the players array - Brennen, Jackson
         // Scale them to a reasonable size
         // Set the visible property of each to false
         // Set the base property of each to -1
+var i = 0;
+While (i !== 4 ) {
+    player.scale.setTo(0.09)
+    player= game.add.sprite(100,100,"player")
+    var i = i + 1;
+}
 
-        // **Add scoreboard image near top of screen
+        // **Add scoreboard image near top of screen - Calvin
 
         // Question dialog - DO NOT CHANGE
         questionPopup = game.add.group();
@@ -83,7 +95,7 @@ var init = function () {
             wordWrap: true,
             wordWrapWidth: 728
         });
-        questionPopup.add(questionText);
+        //questionPopup.add(questionText);
         for (i = 0; i < 4; i++) {
             var x = 24 + (i % 2) * 402;
             var y = 144 + Math.floor(i / 2) * 124;
@@ -92,13 +104,19 @@ var init = function () {
             answerButtons[i].setHandler(checkAnswer);
             questionPopup.add(answerButtons[i]);
         }
-        questionPopup.y = 160;
-        questionPopup.visible = false;
+        //questionPopup.y = 160;
+        //questionPopup.visible = false;
         
-        // **Add the batterup image to the center of the screen
-        // Store it in the batterUpButton variable
+        // **Add the batterup image to the center of the screen - Matthew
+        // Store it in the batterUpButton variables
+        var batterUpButton = function () {
+        batterup = game.add.sprite(400, 300, 'batterup');
+        batterup.anchor.setTo(0.5);
+        };
         
-        // ** Create text objects and position in appropriate
+    
+        
+        // ** Create text objects and position in appropriate - Andy, Josh
         // places on scoreboard. Use Rock Salt font
         
         // DO NOT CHANGE
@@ -143,14 +161,14 @@ var init = function () {
                 }
             }
             
-            // ** If strikes is 3 call strikeOut
+            // ** If strikes is 3 call strikeOut -Colby
        }
     };
     
     // Function to do specific jobs
     
     /**
-     * Function should:
+     * Function should: Carol Ann, Ben
      * Hide popup
      * Make batterUpButton visible
      * Set mode to 'batterup'
@@ -213,7 +231,7 @@ var init = function () {
     };
     
     /**
-     * Function should:
+     * Function should: Sam,Erik
      * Increase score for appropriate team
      * Both score for inning and total score
      * Call updateScoreBoard function
@@ -230,7 +248,7 @@ var init = function () {
     };
     
     /**
-     * Function should:
+     * Function should:Colby 
      * Increase number of outs by 1
      * Call batterUp function
      */

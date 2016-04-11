@@ -23,14 +23,11 @@ var questions = [
         q:"This baseball player’s manager wanted him to pass as a Cuban since he was light skinned.",
         a:"Iron Man Brown",
         c:["Ed Scott","Herbert Simpson","Louis Landtop"]
-        
-        
     },
     {
         q:"Also known as Cool Papa Bell, he was one of the fastest players to ever play the game.",
         a:"James Bell",
         c:["Iron Man Brown", "Tubby Scales","Eugene Scruggs"]
-        
     },
     {
         q:"Also known as Mr. Cub, he was the first black baseball player for the Chicago Cubs. ",
@@ -38,122 +35,116 @@ var questions = [
         c:["Pedro Seirra","Eugene Scruggs","Lee Mabon"]
     },
     {
-       q: "He is considered black baseball’s first slugger.",
-       a: "Louis Sandtop",
-       c: ["Tubby Scales", "Ed Scott", "Pedro Sierra"]
+        q: "He is considered black baseball’s first slugger.",
+        a: "Louis Sandtop",
+        c: ["Tubby Scales", "Ed Scott", "Pedro Sierra"]
     },
     {
-      q: "Many consider this slugger the “Black Babe Ruth.” ",
-      a: "Louis Sandtop",
-      c: ["Tubby Scales", "Ed Scott", "Pedro Sierra"]
+        q: "Many consider this slugger the “Black Babe Ruth.” ",
+        a: "Louis Sandtop",
+        c: ["Tubby Scales", "Ed Scott", "Pedro Sierra"]
     },
     {
-      q: "He had his teeth knocked out by player who accused him of performing poorly.",
-      a: "Tubby Scales",
-      c: ["Louis Sandstop", "Ed Scott", "Pedro Sierra"]
+        q: "He had his teeth knocked out by player who accused him of performing poorly.",
+        a: "Tubby Scales",
+        c: ["Louis Sandstop", "Ed Scott", "Pedro Sierra"]
     },
     {
-      q: "He signed Henry Aaron to the Indianapolis Clowns, as the greatest “wrist” hitter he had ever seen",
-      a: "Ed Scott",
-      c: ["Louis Sandstop", "Tubby Scales", "Pedro Sierra"]
+        q: "He signed Henry Aaron to the Indianapolis Clowns, as the greatest “wrist” hitter he had ever seen",
+        a: "Ed Scott",
+        c: ["Louis Sandstop", "Tubby Scales", "Pedro Sierra"]
     },
     {
-        q: "This person was nicknamed “Sea Boy”."
-        a: "Sea boy"
-        c:[]
-    }
-    {
-      q: "This player was called “the great Negro player of that time,” by hall of fame umpire, Jocko Conlon.",
-      a: "Oscar Charleston",
-      c: ["Bill cash, Dangridge, Frank Evans"]
-    
-  { 
-    q: "This player was called “the best third baseman to ever make the major leagues”,
-    a: "Dandridge",
-    c: ["Luke Easter","Andrew 'Rube' Foster", "Frank Evans",]
-  },
-    {
-    q: "This person worked as a security guard at Wells Fargo after his baseball career, and was murdered by a robber",
-    a: "Luke Easter",
-    c: ["Andrew “Rube” Foster, Frank Evans,Dandridge,   "]
+        q: "This person was nicknamed “Sea Boy”",
+        a: "Sea boy",
+        c: ["Louis Sandstop","Pedro Sierra","Frank Evans"]
     },
     {
-    q:  "This pitcher was seen as the “Father of the Negro Leagues”?,
-    a:  "Andrew “Rube” Foster",
-    c:  ["Dandridge, Luke Easter, Frank Evans "]
+        q: "This player was called “the great Negro player of that time,” by hall of fame umpire, Jocko Conlon.",
+        a: "Oscar Charleston",
+        c: ["Bill cash", "Dangridge", "Frank Evans"]
+    },
+    { 
+        q: "This player was called the best third baseman to ever make the major leagues",
+        a: "Dandridge",
+        c: ["Luke Easter","Andrew 'Rube' Foster", "Frank Evans",]
     },
     {
-        q: "This baseball player was honored by the National Baseball Hall of Fame in 1990 and spoke to youth and Negro Leagues about the importance of family values."
-        a:
-    }
-{
-    q: "This person played on 15 different teams over his 24 year career."
-    a: "Bill Gatewood"
-    c: [Elizabeth and Emily]
-
-{
-    q:"What was Felix Evans’ nickname?";
-    a:Chin;
-    c:["Floyd Gardner,Willie Grace,Josh Gibson Jr"]
-    
-    q:"This player’s father played Negro League Baseball and was signed at the age of 17"
-    a:"Josh Gibson Jr"
-    c:["Chin,Willie Grace,Thomas Sampson"]
-    
-    q:"After the Cleveland Buckeyes had a car accident that killed two players, this person joined the team in 1942 and earned the 1946 award of “Most valuable player” on his team. "
-    a:"Willie Grace"
-    c:["Louis Sandtop, Floyd Gardner,Toni Stone"]
-    
-    q:"This player batted left-handed, but threw right-handed and was nicknamed “Jelly”"
-    a:"Floyd Gardner"
-    c:["John Donaldson,Pat Dougherty,Raleigh “Biz” Mack"]
-{
-    q:"This person went to canada and pitched against jackie robinson",
-    a:Walter Gibbons
-    c:Elizabeth and Emily
-}
-
-{
-q: "He won a 32 piece dish set for getting the first hit off Satchel Paige in 1940.",
-a:  "Ed Scott",
-c: "Eugene Scruggs", "Pedro Sierra", "Herbert  Simpson"
-},
-
-
-{
-q: "Bob Wilson called his curveball the “funky curveball.",
-a: "Eugene Scruggs",
-c: " Pedro Sierra", "Herbert  Simpson", "Willie Simms"
-},
-
-{
-q: "He helped Cuban refugees during the 1980 Cuban refugee crisis.",
-a: "Pedro Sierra",
-c: "Herbert  Simpson", "Ed Scott", "Eugene Scruggs"
-},
-
-{
-q: "In 1953 he was married at home plate while playing for the Oakland Acorns.",
-a: "Herbert  Simpson",
-c: "Willie Simms", "Pedro Sierra", "Charles “Chino” Smith"
-},
-
-{
-q: "In 1953 he was married at home plate while playing for the Oakland Acorns.",
-a: "Herbert  Simpson",
-c: "Willie Simms","Pedro Sierra", "Eugene Scruggs"
-},
-
-{
-    q:"This player was the greatest shortstop of his time no matter if it was white or black for the first two decades of the century?"
-    a: John Henry “pop” Lloyd;
-    c:Ryan and Isabelle
- 
-}  
-
-{ 
-    q: "This player was influenced to play baseball professionally for the Norfolk stars by future star players Nip Winters and Chappy Johnson.Isabelle"
-     {
+        q: "This person worked as a security guard at Wells Fargo after his baseball career, and was murdered by a robber",
+        a: "Luke Easter",
+        c: ["Andrew “Rube” Foster", "Frank Evans,Dandridge  "]
+    },
+    {
+        q:  "This pitcher was seen as the “Father of the Negro Leagues",
+        a:  "Andrew “Rube” Foster",
+        c:  ["Dandridge", "Luke Easter", "Frank Evans"]
+    },
+    {
+        q: "This baseball player was honored by the National Baseball Hall of Fame in 1990 and spoke to youth and Negro Leagues about the importance of family values.",
+        a: "Frank Evans",
+        c: ["Dandridge", "Luke Easter", "Andrew 'Rube' Foster"]
+    },
+    {
+        q: "This player was nicknamed “Bud” and his real name was John W. Jackson",
+        a: "John Fowler",
+        c: ["Dandridge" , "Luke Easter" , "Andrew 'Rube' Foster" ]
+    },
+    {
+        q: "What was Felix Evans’ nickname?",
+        a: "Chin",
+        c: ["Floyd Gardner","Willie Grace,Josh Gibson Jr"]
+    },
+    {
+        q:"This player’s father played Negro League Baseball and was signed at the age of 17",
+        a:"Josh Gibson Jr",
+        c:["Chin,Willie Grace","Thomas Sampson"]
+    },
+    {
+        q:"After the Cleveland Buckeyes had a car accident that killed two players, this person joined the team in 1942 and earned the 1946 award of “Most valuable player” on his team.",
+        a:"Willie Grace",
+        c:["Louis Sandtop", "Floyd Gardner,Toni Stone"]
+    },
+    {
+        q:"This player batted left-handed, but threw right-handed and was nicknamed “Jelly”",
+        a:"Floyd Gardner",
+        c:["John Donaldson","Pat Dougherty","Raleigh “Biz” Mack"]
+    },
+    {
+        q:"This person went to canada and pitched against Jackie Robinson",
+        a: "Walter Gibbons",
+        c: ["Babe Ruth", "Eugene Scruggs", "Pedro Sierra"]
+    },
+    {
+        q: "He won a 32 piece dish set for getting the first hit off Satchel Paige in 1940.",
+        a: "Ed Scott",
+        c: ["Eugene Scruggs", "Pedro Sierra", "Herbert  Simpson"]
+    },
+    {
+        q: "Bob Wilson called his curveball the “funky curveball.",
+        a: "Eugene Scruggs",
+        c: ["Pedro Sierra", "Herbert  Simpson", "Willie Simms"]
+    },
+    {
+        q: "He helped Cuban refugees during the 1980 Cuban refugee crisis.",
+        a: "Pedro Sierra",
+        c: ["Herbert  Simpson", "Ed Scott", "Eugene Scruggs"]
+    },
+    {
+        q: "In 1953 he was married at home plate while playing for the Oakland Acorns.",
+        a: "Herbert  Simpson",
+        c: ["Willie Simms", "Pedro Sierra", "Charles “Chino” Smith"]
+    },
+    {
+        q: "In 1953 he was married at home plate while playing for the Oakland Acorns.",
+        a: "Herbert  Simpson",
+        c: ["Willie Simms","Pedro Sierra", "Eugene Scruggs"]
+    },
+    {
+        q:"This player was the greatest shortstop of his time no matter if it was white or black for the first two decades of the century?",
+        a: "John Henry “pop” Lloyd",
+        c:  ["Ryan and Isabelle"]
+    },
+    { 
         q: "This player’s half brother was the famous Rube Foster.",
         a: "Willie Foster",
         c: ["Bob Griffith ", "Babe Ruth", "Mack Pride"]
@@ -173,27 +164,22 @@ c: "Willie Simms","Pedro Sierra", "Eugene Scruggs"
         a: "William Greason",
         c: ["John Miles", "James Ivory", "Max Manning"]
     },
-    
     {
         q: "She was the first woman to play in the Negro leagues, playing in 50 games and batting .243.",
         a: "Toni Stone",
         c: ["Tony Stone", "Hank Aaron", "Ed Scott"]
     },
-    
-    
     {
         q: "A left handed pitcher who played in the 1880s, this hurler was known for his intimidating pick off move.",
         a: "George Stovey",
         c: ["George Stovey", "Hank Aaron", "Tony Stone"]
     },
-    
-     {
+    {
         q: "He was a powerful agent an owner in the New York area who bought to Cadillacs for his team to travel in.",
         a: "Nat Strong",
         c: ["George Stovey", "Nat Strong", "Tony Stone"]
     },
-    
-      {
+    {
         q: "Before taking a swing, this slugger’s teammates would yell “kick mule” before swung a 50 oz.",
         a: "George Mule Settles",
         c: ["George Stovey", "George Mule Settles", "Tony Stone"]
@@ -214,31 +200,72 @@ c: "Willie Simms","Pedro Sierra", "Eugene Scruggs"
         c: ["Mitchell Case", "Goose Tatum", "Bernand Fernandez"]
     },
     {
-        q: "This pitcher did a tour of military service in France with the 365th Infantry during World War I."
+        q: "This pitcher did a tour of military service in France with the 365th Infantry during World War I.",
         a: "John Donaldson",
         c: ["Bob Griffith", "Bucke Leonard", "Dave Malarcher"]
     },
     {
-    q:"Many consider him the best lead off hitter in Negro League history.",
-    a:"Willie Simms",
-    C:["Eugene Scruggs","Toni Stone","George Stovey"]
+        q:"Many consider him the best lead off hitter in Negro League history.",
+        a:"Wille Simms",
+        C:["Eugene Scruggs","Toni Stone","George Stovey"]
     },
     {
-    q:"He would spit at a pitcher’s best pitch until he got to the third strike, then calmly line drive a ball into centerfield."
-    a:'Charles "Chino” Smith'
-    c:["Ed Scott","Jake Stephens","“Goose” Tatum"]
+        q:"He would spit at a pitcher’s best pitch until he got to the third strike, then calmly line drive a ball into centerfield.",
+        a:"Charles 'Chino' Smith",
+        c:["Ed Scott","Jake Stephens","“Goose” Tatum"]
     },
     {
-    q:'This great “long ball” hitter had a strange stance with his front foot heel down and his toe up.'
-    a:'Norman “Turkey” Stearns'
-    c:["Ben Taylor","Buck Leonard","Hank Aaron"]
+        q:"This great “long ball” hitter had a strange stance with his front foot heel down and his toe up.",
+        a:"Norman 'Turkey” Stearns'",
+        c:["Ben Taylor","Buck Leonard","Hank Aaron"]
     },
     {
-    q:"To avoid facing a string of curveball pitchers, this speedy and aggressive shortstop once mailed a telegraph to himself claiming a family member had died."
-    a:"Jake Stephens"
-    c:["Roy Campanella","Frank Marsh","Bill Cash"]
+        q:"To avoid facing a string of curveball pitchers, this speedy and aggressive shortstop once mailed a telegraph to himself claiming a family member had died.",
+        a:"Jake Stephens",
+        c:["Roy Campanella","Frank Marsh","Bill Cash"]
     },
-];
-
-
-
+    {
+        q: "This African American pitcher had 30 no-hitters throughout his career.",
+        a: "Richard “Cannonball Dick” Redding",
+        c: ["Bill Pettus", "John Henry", "Ank Aaron"]
+    },
+    {
+        q: "This African American pitcher developed a hesitation pitch and a no-windup pitch during his baseball career.",
+        a: " Richard “Cannonball Dick” Redding",
+        c: ["Oliver H. Marcelle", "Dave Malarcher", "Raleigh “Biz” Mack"]
+    },
+    {
+        q: "This big, left-handed power hitter was one of the best batsmen of the deadball era and is one of the most underrated players from black baseball.",
+        a: "Bill Pettus",
+        c: ["Thomas Sampson", "Louis Sandtop", "Tubby Scales"]
+    },
+    {
+        q: "This pitcher earned the nickname “Red” because of his light complexion and his dark red hair.",
+        a: "Merven “Red” Ryan",
+        c: ["Othello Renfroe", "Charley Pride", "Emilio “Millito” Navarro"]
+    },
+    {
+        q: "This owner of the Pittsburgh Crawfords team led them to be the best ranked each season from 1932 to 1936, the team’s highest point of success",
+        a: "William “Gus” Greenlee",
+        c: ["Willam T Stanford", "Johnson Roland", "Brandon N Willams"]
+    },
+    {
+        q: "This player was a breeder, trainer, and owner of many thoroughbred horses and raced horses in Delaware, New Jersey, and Pennsylvania after his career ended",
+        a: "Harold Gould",
+        c: ["Jermey Greene", "Roland John", "Jackie Robison"]
+    },
+    {  
+        q: "This person was the second player from the Negro League to be inducted into the Baseball Hall of Fame",
+        a: "Josh Gibson",
+        c: ["Tubby Scales", "Herbert Yellow", "Mark Loky"]
+    },
+    {   
+        q: "This person was sometimes referred to as a “Spaniard” to make his presence more acceptable, however he still encountered racial discrimination.",
+        a: "Frank Grant",
+        c:["Gibson Try", "Trant green Robison", ________________]
+    },
+    {   
+        q: "Robison for the Brooklyn Dodgers.",
+        a: "Joe Black",
+        c: ["Jennifer", "Chris",  "Shawn"]
+    },
