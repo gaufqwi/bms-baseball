@@ -1,7 +1,6 @@
 
 var fontConfig = {
     active: function () {
-        console.log('fonts loaded');
         init();
     },
     
@@ -13,7 +12,6 @@ var fontConfig = {
 WebFont.load(fontConfig);
 
 var init = function () {
-    console.log('game init');
     var game;
     
     // Declare shared variables here
@@ -28,6 +26,7 @@ var init = function () {
     // Variables for other Phaser game objects
     var questionPopup;
     var questionText;
+    var batterUp;
     var answerButtons = [];
     
     // Variables for keyboard input;
@@ -50,7 +49,7 @@ var init = function () {
     var answers = [];
     var wrongAnswers = [];
     var unusedQuestions = questions.length;
-    var mode = "newquestion";
+    var mode = 'batterup';
     var timeMarker = 0;
     
     // Preload assets
@@ -59,6 +58,8 @@ var init = function () {
         game.load.image('diamond', 'assets/images/baseballfield.png');
         game.load.image('player', 'assets/images/player.png');
         game.load.image('pinebutton', 'assets/images/pinebutton.png');
+        game.load.image('batterup', 'assets/images/batterup.png');
+        game.load.image('qboard', 'assets/images/qboard.png');
     };
     
     // Draw initial screen
@@ -80,24 +81,33 @@ var init = function () {
         }
         
         questionPopup = game.add.group();
-        questionText = game.make.text(24, 8, 'Foo', {
+        game.add.image(12, 0, 'qboard', null, questionPopup);
+        questionText = game.make.text(36, 8, 'Foo', {
             font: '36px VT323',
             fill: 'red',
             wordWrap: true,
-            wordWrapWidth: 752
+            wordWrapWidth: 728
         });
         questionPopup.add(questionText);
         for (i = 0; i < 4; i++) {
             var x = 24 + (i % 2) * 402;
-            var y = 100 + Math.floor(i / 2) * 124;
+            var y = 144 + Math.floor(i / 2) * 124;
             var letter = String.fromCharCode(65 + i);
             answerButtons[i] = new AnswerButton(game, x, y, letter);
             answerButtons[i].setHandler(checkAnswer);
             questionPopup.add(answerButtons[i]);
         }
         questionPopup.y = 100;
-        questionPopup.visible = true;
-        //
+        questionPopup.visible = false;
+        
+        batterUpButton = game.add.image(game.world.centerX, game.world.centerY, 'batterup');
+        batterUpButton.anchor.setTo(0.5);
+        batterUpButton.inputEnabled = true;
+        batterUpButton.input.start(0, true);
+        batterUpButton.events.onInputUp.add(function () {
+            batterUpButton.visible = false;
+            mode = 'newquestion';
+        });
     };
     
     // Runs every second to get input, redraw screen,
@@ -142,6 +152,11 @@ var init = function () {
     };
     
     // Function to do specific jobs
+    var batterUp = function () {
+        hidePopup();
+        batterUpButton.visible = true;
+        mode = 'batterup';
+    };
     
     var checkAnswer = function (ans) {
         if (ans === question.a) {
@@ -191,9 +206,7 @@ var init = function () {
             tween.onComplete.addOnce(reachBase, this);
         }
         if (nRunners === 0) {
-            game.time.events.add(3000, function () {
-                mode = 'newquestion';
-            });
+            game.time.events.add(3000, batterUp);
         }
     };
     
@@ -220,7 +233,7 @@ var init = function () {
     var strikeOut = function () {
         console.log('strikeout');
         outs += 1;
-        mode = 'newquestion';
+        batterUp();
     };
     
     var updateScoreBoard = function () {
@@ -347,7 +360,6 @@ AnswerButton.prototype.reset = function () {
 AnswerButton.prototype.update = function () {
     if (this.ansText.dirty) {
         if (this.ansText.width > 270) {
-            console.log('dirty', this.ansText.text, 270 / this.ansText.width);
             this.ansText.scale.setTo(270 / this.ansText.width);
         }
     }
