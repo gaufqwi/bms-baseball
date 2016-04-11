@@ -60,6 +60,7 @@ var init = function () {
         game.load.image('pinebutton', 'assets/images/pinebutton.png');
         game.load.image('batterup', 'assets/images/batterup.png');
         game.load.image('qboard', 'assets/images/qboard.png');
+        game.load.image('scoreboard', 'assets/images/scoreboard.png');
     };
     
     // Draw initial screen
@@ -80,6 +81,8 @@ var init = function () {
             players[i].base = -1;
         }
         
+        game.add.image(12, 8, 'scoreboard');
+        
         questionPopup = game.add.group();
         game.add.image(12, 0, 'qboard', null, questionPopup);
         questionText = game.make.text(36, 8, 'Foo', {
@@ -97,7 +100,7 @@ var init = function () {
             answerButtons[i].setHandler(checkAnswer);
             questionPopup.add(answerButtons[i]);
         }
-        questionPopup.y = 100;
+        questionPopup.y = 160;
         questionPopup.visible = false;
         
         batterUpButton = game.add.image(game.world.centerX, game.world.centerY, 'batterup');
