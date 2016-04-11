@@ -1,4 +1,3 @@
-
 var fontConfig = {
     active: function () {
         init();
@@ -20,6 +19,7 @@ var init = function () {
     var players = [];
     
     // Variables for text objects
+    // ** Create appropriate variables - see below
     
     // Variables for sound objects
     
@@ -34,9 +34,9 @@ var init = function () {
 
     // Variables for game state (e.g. score, strikes, etc.)
     var bases = [{x: 90, y: 500}, {x: 300, y: 500}, {x: 300, y: 300}, {x:90, y:300}];
-    var team1InningScores = [0, 0, 0, 0, 0];
+    var team1InningScores = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     var team1TotalScore = 0;
-    var team2InningScores = [0, 0, 0, 0, 0];
+    var team2InningScores = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     var team2TotalScore = 0;
     var inning = 0;
     var teamAtBat = 1;
@@ -55,12 +55,7 @@ var init = function () {
     // Preload assets
     // game.load.whatever functions
     var preload = function () {
-        game.load.image('diamond', 'assets/images/baseballfield.png');
-        game.load.image('player', 'assets/images/player.png');
-        game.load.image('pinebutton', 'assets/images/pinebutton.png');
-        game.load.image('batterup', 'assets/images/batterup.png');
-        game.load.image('qboard', 'assets/images/qboard.png');
-        game.load.image('scoreboard', 'assets/images/scoreboard.png');
+        // Preload all images
     };
     
     // Draw initial screen
@@ -70,19 +65,16 @@ var init = function () {
         answerKeys[2] = game.input.keyboard.addKey(Phaser.Keyboard.C);
         answerKeys[3] = game.input.keyboard.addKey(Phaser.Keyboard.D);
         
-        var diamond = game.add.image(0, 0, 'diamond');
-        diamond.width = 800;
-        diamond.height = 600;
-        for (var i = 0; i < 4; i++) {
-            players[i] = game.add.sprite(0, 0, 'player');
-            players[i].visible = false;
-            players[i].scale.setTo(0.2);
-            players[i].anchor.setTo(0.5);
-            players[i].base = -1;
-        }
-        
-        game.add.image(12, 8, 'scoreboard');
-        
+        // **Add diamond image to world; make it 800 by 600
+
+        // **Use a loop to add 4 players to the players array
+        // Scale them to a reasonable size
+        // Set the visible property of each to false
+        // Set the base property of each to -1
+
+        // **Add scoreboard image near top of screen
+
+        // Question dialog - DO NOT CHANGE
         questionPopup = game.add.group();
         game.add.image(12, 0, 'qboard', null, questionPopup);
         questionText = game.make.text(36, 8, 'Foo', {
@@ -103,7 +95,13 @@ var init = function () {
         questionPopup.y = 160;
         questionPopup.visible = false;
         
-        batterUpButton = game.add.image(game.world.centerX, game.world.centerY, 'batterup');
+        // **Add the batterup image to the center of the screen
+        // Store it in the batterUpButton variable
+        
+        // ** Create text objects and position in appropriate
+        // places on scoreboard. Use Rock Salt font
+        
+        // DO NOT CHANGE
         batterUpButton.anchor.setTo(0.5);
         batterUpButton.inputEnabled = true;
         batterUpButton.input.start(0, true);
@@ -117,14 +115,12 @@ var init = function () {
     // etc.
     var update = function () {
         if (mode === 'newquestion') {
-            nextBatter();
-            nextQuestion();
-            showPopup();
-            basesPossible = 4;
-            strikes = 0;
-            for (var i = 0; i < 4; i++) {
-                answerKeys[i].eliminated = false;
-            }
+            // **Call nextBatter, nextQuestion, and showPopup functions
+            // Set basesPossible to 4 and strikes to  0
+            // Loop to set eliminated property on answerKeys array
+            // to false
+            
+            // DO NOT CHANGE
             timeMarker = game.time.now;
             mode = 'waiting';
         } else if (mode === 'waiting') {
@@ -147,22 +143,24 @@ var init = function () {
                 }
             }
             
-            // Three strikes and you're out
-            if (strikes === 3) {
-                strikeOut();
-            }
-        }
+            // ** If strikes is 3 call strikeOut
+       }
     };
     
     // Function to do specific jobs
+    
+    /**
+     * Function should:
+     * Hide popup
+     * Make batterUpButton visible
+     * Set mode to 'batterup'
+     */
     var batterUp = function () {
-        hidePopup();
-        batterUpButton.visible = true;
-        mode = 'batterup';
+
     };
     
     var checkAnswer = function (ans) {
-        if (ans === question.a) {
+        if (/* is ans the correct answer to this question */) {
             mode = 'running';
             runBases(basesPossible);
             hidePopup();
@@ -174,8 +172,9 @@ var init = function () {
                 }
             }
             eliminateAnswer(i);
-            strikes += 1;
-            basesPossible -= 1;
+            // ** Add one to strikes and subtract one from
+            // from basesPossible
+
         }
     };
     
@@ -213,16 +212,13 @@ var init = function () {
         }
     };
     
+    /**
+     * Function should:
+     * Increase score for appropriate team
+     * Both score for inning and total score
+     * Call updateScoreBoard function
+     */
     var scoreRun = function() {
-        if (teamAtBat === 1) {
-            team1InningScores[inning] += 1;
-            team1TotalScore += 1;
-        } else {
-            team2InningScores[inning] += 1;
-            team2TotalScore += 1;
-        }
-        // TODO: Razzle dazzle
-        updateScoreBoard();
     };
     
     var eliminateAnswer = function (i) {
@@ -233,25 +229,34 @@ var init = function () {
         answerKeys[i].eliminated = true;
     };
     
+    /**
+     * Function should:
+     * Increase number of outs by 1
+     * Call batterUp function
+     */
     var strikeOut = function () {
-        console.log('strikeout');
-        outs += 1;
-        batterUp();
     };
     
+    /**
+     * Function should:
+     * Update text objects for all innning scores,
+     * total score, strikes, and outs
+     */
     var updateScoreBoard = function () {
-        console.log(team1InningScores);
-        console.log(team1TotalScore);
-        console.log(strikes);
+        
     };
     
+    
+    /**
+     * Function should:
+     * Loop through players array until it finds a sprite
+     * whose base property is -1
+     * Set the visible property of that sprite to true
+     * Set the x and y coordinates of that sprite to those
+     * of home plate - base[0]
+     */
     var nextBatter = function () {
-        while (players[batter].base !== -1) {
-            batter = (batter + 1) % 4;
-        }
-        players[batter].x = bases[0].x;
-        players[batter].y = bases[0].y;
-        players[batter].visible = true;
+
     };
     
     var nextQuestion = function () {
@@ -291,13 +296,15 @@ var init = function () {
         });
     };
     
+    /**
+     * Function should:
+     * Randomly change the order of the array a
+     * Needs only to work on arrays of length 3 and 4
+     * (but it would be nice if it could work on all)
+     */
     var shuffle = function (a) {
-        for (var i = a.length - 1; i > 0; i--) {
-            var j = game.rnd.between(0, i);
-            a.push(a[j]);
-            a.splice(j, 1);
-        }
-    }
+
+    };
     
     // Don't edit below here
     game = new Phaser.Game(800, 600, Phaser.AUTO,
