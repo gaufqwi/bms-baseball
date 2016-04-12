@@ -15,19 +15,19 @@ var questions = [
         c: ["Tubby Scales", "Ed Scott", "Pedro Sierra"]
     },
     {
-        q:"This slugger was the king of home runs with 755 until it was broken in 2007 by Barry Bonds.",
-        a:"Hank Aaron",
-        c:["James Bell","Ernie Banks", "Lee Mabon"] 
+        q: "This slugger was the king of home runs with 755 until it was broken in 2007 by Barry Bonds.",
+        a: "Hank Aaron",
+        c: ["James Bell", "Ernie Banks", "Lee Mabon"] 
     },
     { 
-        q:"This baseball player’s manager wanted him to pass as a Cuban since he was light skinned.",
-        a:"Iron Man Brown",
-        c:["Ed Scott","Herbert Simpson","Louis Landtop"]
+        q: "This baseball player’s manager wanted him to pass as a Cuban since he was light skinned.",
+        a: "Iron Man Brown",
+        c: ["Ed Scott","Herbert Simpson","Louis Landtop"]
     },
     {
-        q:"Also known as Cool Papa Bell, he was one of the fastest players to ever play the game.",
-        a:"James Bell",
-        c:["Iron Man Brown", "Tubby Scales","Eugene Scruggs"]
+        q: "Also known as Cool Papa Bell, he was one of the fastest players to ever play the game.",
+        a: "James Bell",
+        c: ["Iron Man Brown", "Tubby Scales","Eugene Scruggs"]
     },
     {
         q:"Also known as Mr. Cub, he was the first black baseball player for the Chicago Cubs. ",
@@ -75,9 +75,9 @@ var questions = [
         c: ["Andrew “Rube” Foster", "Frank Evans,Dandridge  "]
     },
     {
-        q:  "This pitcher was seen as the “Father of the Negro Leagues",
-        a:  "Andrew “Rube” Foster",
-        c:  ["Dandridge", "Luke Easter", "Frank Evans"]
+        q: "This pitcher was seen as the “Father of the Negro Leagues",
+        a: "Andrew “Rube” Foster",
+        c: ["Dandridge", "Luke Easter", "Frank Evans"]
     },
     {
         q: "This baseball player was honored by the National Baseball Hall of Fame in 1990 and spoke to youth and Negro Leagues about the importance of family values.",
@@ -142,7 +142,7 @@ var questions = [
     {
         q:"This player was the greatest shortstop of his time no matter if it was white or black for the first two decades of the century?",
         a: "John Henry “pop” Lloyd",
-        c:  ["Ryan and Isabelle"]
+        c:  ["Willie Simms","Pedro Sierra", "Eugene Scruggs"]
     },
     { 
         q: "This player’s half brother was the famous Rube Foster.",

@@ -51,6 +51,10 @@ var init = function () {
     var unusedQuestions = questions.length;
     var mode = 'batterup';
     var timeMarker = 0;
+    var strikesText;
+    var outsText;
+    var inningteam1;
+    var inningteam2
     
     // Preload assets
     // game.load.whatever functions
@@ -78,13 +82,46 @@ var init = function () {
         // Set the visible property of each to false
         // Set the base property of each to -1
 var i = 0;
-While (i !== 4 ) {
-    player.scale.setTo(0.09)
-    player= game.add.sprite(100,100,"player")
+while (i < 4) {
+    player.scale.setTo(0.09);
+    player = game.add.sprite(playerX,playerY,"player");
     var i = i + 1;
 }
 
+var inningteam1=[];
+var inningteam2=[];
+
+for (var i=0;i<10; i++) {
+    inning1[i]=game.make.text(x,y,"",{
+    font: "12px Rock Salt",
+    fill: "white"
+    });
+}
+
+for (var i=0;i<10; i++) {
+    inning2[i]=game.make.text(x,y,"",{
+    font: "12px Rock Salt",
+    fill: "white"
+    });
+}
+
+var strikesText=game.make.text(100,200,""{
+    font: "12px Rock Salt",
+    fill: "white"
+});
+
+var outsText=game.make.text(100,200,"",{
+    font: "12px Rock Salt",
+    fill: "white"
+});
+
+var playersHide = function () {
+    player.scale.setTo(-1);
+}
+
         // **Add scoreboard image near top of screen - Calvin
+scoreboard = game.add.sprite(0,0,"scoreboard");
+scoreboard.scale.setTo(0.3);
 
         // Question dialog - DO NOT CHANGE
         questionPopup = game.add.group();
@@ -95,7 +132,7 @@ While (i !== 4 ) {
             wordWrap: true,
             wordWrapWidth: 728
         });
-        //questionPopup.add(questionText);
+        questionPopup.add(questionText);
         for (i = 0; i < 4; i++) {
             var x = 24 + (i % 2) * 402;
             var y = 144 + Math.floor(i / 2) * 124;
@@ -104,8 +141,8 @@ While (i !== 4 ) {
             answerButtons[i].setHandler(checkAnswer);
             questionPopup.add(answerButtons[i]);
         }
-        //questionPopup.y = 160;
-        //questionPopup.visible = false;
+        questionPopup.y = 160;
+        questionPopup.visible = false;
         
         // **Add the batterup image to the center of the screen - Matthew
         // Store it in the batterUpButton variables
@@ -162,9 +199,9 @@ While (i !== 4 ) {
             }
             
             // ** If strikes is 3 call strikeOut -Colby
-       }
+       }        
     };
-    
+                 
     // Function to do specific jobs
     
     /**
@@ -252,8 +289,10 @@ While (i !== 4 ) {
      * Increase number of outs by 1
      * Call batterUp function
      */
-    var strikeOut = function () {
-    };
+     var strikeOut = function () {
+        
+         
+     };
     
     /**
      * Function should:
