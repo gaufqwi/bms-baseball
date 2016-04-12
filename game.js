@@ -54,18 +54,18 @@ var init = function () {
     var strikesText;
     var outsText;
     var inningteam1;
-    var inningteam2
+    var inningteam2;
     
     // Preload assets
     // game.load.whatever functions
     var preload = function () {
         // **Preload all images - Nathan
-        game.load.image('baseballfield','assets/sprites/baseballfield.png')
-        game.load.image('batterup', "assets/sprites/batterup.png")
-        game.load.image('pinebutton','assets/sprites/pinebutton.png')
-        game.load.image('player','assets/sprites/player.png')
-        game.load.image('qboard','assets/sprites/qboard.png')
-        game.load.image('scoreboard','assets/sprites/scoreboard.png')
+        game.load.image('baseballfield','assets/images/baseballfield.png')
+        game.load.image('batterup', "assets/images/batterup.png")
+        game.load.image('pinebutton','assets/images/pinebutton.png')
+        game.load.image('player','assets/images/player.png')
+        game.load.image('qboard','assets/images/qboard.png')
+        game.load.image('scoreboard','assets/images/scoreboard.png')
     };
     
     // Draw initial screen
@@ -81,47 +81,47 @@ var init = function () {
         // Scale them to a reasonable size
         // Set the visible property of each to false
         // Set the base property of each to -1
-var i = 0;
-while (i < 4) {
-    player.scale.setTo(0.09);
-    player = game.add.sprite(playerX,playerY,"player");
-    var i = i + 1;
-}
+        var i = 0;
+        while (i < 4) {
+            player.scale.setTo(0.09);
+            player = game.add.sprite(playerX,playerY,"player");
+            var i = i + 1;
+        }
 
-var inningteam1=[];
-var inningteam2=[];
+        inningteam1=[];
+        inningteam2=[];
 
-for (var i=0;i<10; i++) {
-    inning1[i]=game.make.text(x,y,"",{
-    font: "12px Rock Salt",
-    fill: "white"
-    });
-}
+        for (var i=0;i<10; i++) {
+            inningteam1[i]=game.add.text(x,y,"",{
+            font: "12px Rock Salt",
+            fill: "white"
+            });
+        }
+        
+        for (var i=0;i<10; i++) {
+            inningteam2[i]=game.add.text(x,y,"",{
+            font: "12px Rock Salt",
+            fill: "white"
+            });
+        }
 
-for (var i=0;i<10; i++) {
-    inning2[i]=game.make.text(x,y,"",{
-    font: "12px Rock Salt",
-    fill: "white"
-    });
-}
+        strikesText=game.add.text(100,200,"",{
+            font: "12px Rock Salt",
+            fill: "white"
+        });
+    
+        outsText=game.make.text(100,200,"",{
+            font: "12px Rock Salt",
+            fill: "white"
+        });
 
-var strikesText=game.make.text(100,200,""{
-    font: "12px Rock Salt",
-    fill: "white"
-});
-
-var outsText=game.make.text(100,200,"",{
-    font: "12px Rock Salt",
-    fill: "white"
-});
-
-var playersHide = function () {
-    player.scale.setTo(-1);
-}
+// var playersHide = function () {
+//     player.scale.setTo(-1);
+// }hhhh
 
         // **Add scoreboard image near top of screen - Calvin
-scoreboard = game.add.sprite(0,0,"scoreboard");
-scoreboard.scale.setTo(0.3);
+        scoreboard = game.add.sprite(12,12,"scoreboard");
+        //scoreboard.scale.setTo(0.3);
 
         // Question dialog - DO NOT CHANGE
         questionPopup = game.add.group();
@@ -146,11 +146,8 @@ scoreboard.scale.setTo(0.3);
         
         // **Add the batterup image to the center of the screen - Matthew
         // Store it in the batterUpButton variables
-        var batterUpButton = function () {
-        batterup = game.add.sprite(400, 300, 'batterup');
-        batterup.anchor.setTo(0.5);
-        };
-        
+        var batterUpButton = game.add.sprite(400, 300, 'batterup');
+        batterUpButton.anchor.setTo(0.5);
     
         
         // ** Create text objects and position in appropriate - Andy, Josh
@@ -215,7 +212,7 @@ scoreboard.scale.setTo(0.3);
     };
     
     var checkAnswer = function (ans) {
-        if (/* is ans the correct answer to this question */) {
+        if (ans === question.a) {
             mode = 'running';
             runBases(basesPossible);
             hidePopup();
