@@ -177,6 +177,14 @@ var init = function () {
             // Set basesPossible to 4 and strikes to  0
             // Loop to set eliminated property on answerKeys array
             // to false
+            nextBatter();
+            nextQuestion();
+            showPopup();
+            basesPossible = 4;
+            strikes = 0;
+            for (var i = 0; i < 4; i++) {
+                answerKeys[i].eliminated = false;
+            }
             
             // DO NOT CHANGE
             timeMarker = game.time.now;
@@ -214,7 +222,9 @@ var init = function () {
      * Set mode to 'batterup'
      */
     var batterUp = function () {
-
+        hidePopup();
+        batterUpButton.visible = true;
+        mode = 'batterup';
     };
     
     var checkAnswer = function (ans) {
@@ -292,10 +302,10 @@ var init = function () {
      * Increase number of outs by 1
      * Call batterUp function
      */
-     var strikeOut = function () {
-        
-         
-     };
+    var strikeOut = function () {
+        outs += 1;
+        batterUp(); 
+    };
     
     /**
      * Function should:
