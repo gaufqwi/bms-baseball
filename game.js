@@ -76,6 +76,9 @@ var init = function () {
         answerKeys[3] = game.input.keyboard.addKey(Phaser.Keyboard.D);
         
         // **Add diamond image to world; make it 800 by 600 - Moziah
+        var baseballfield = game.add.image(0, 0, 'baseballfield');
+        baseballfield.width = 800;
+        baseballfield.height = 600;
 
         // **Use a loop to add 4 players to the players array - Brennen, Jackson
         // Scale them to a reasonable size
@@ -83,37 +86,13 @@ var init = function () {
         // Set the base property of each to -1
         var i = 0;
         while (i < 4) {
-            player.scale.setTo(0.09);
-            player = game.add.sprite(playerX,playerY,"player");
-            var i = i + 1;
+            players[i] = game.add.sprite(0,0,"player");
+            players[i].scale.setTo(0.2);
+            players[i].anchor.setTo(0.5);
+            players[i].visible = false;
+            i = i + 1;
         }
 
-        inningteam1=[];
-        inningteam2=[];
-
-        for (var i=0;i<10; i++) {
-            inningteam1[i]=game.add.text(x,y,"",{
-            font: "12px Rock Salt",
-            fill: "white"
-            });
-        }
-        
-        for (var i=0;i<10; i++) {
-            inningteam2[i]=game.add.text(x,y,"",{
-            font: "12px Rock Salt",
-            fill: "white"
-            });
-        }
-
-        strikesText=game.add.text(100,200,"",{
-            font: "12px Rock Salt",
-            fill: "white"
-        });
-    
-        outsText=game.make.text(100,200,"",{
-            font: "12px Rock Salt",
-            fill: "white"
-        });
 
 // var playersHide = function () {
 //     player.scale.setTo(-1);
@@ -152,6 +131,33 @@ var init = function () {
         
         // ** Create text objects and position in appropriate - Andy, Josh
         // places on scoreboard. Use Rock Salt font
+        inningteam1=[];
+        inningteam2=[];
+
+        var x = 0, y = 0;  // for testing
+        for (var i=0;i<10; i++) {
+            inningteam1[i]=game.add.text(x,y,"",{
+            font: "12px Rock Salt",
+            fill: "white"
+            });
+        }
+        
+        for (var i=0;i<10; i++) {
+            inningteam2[i]=game.add.text(x,y,"",{
+            font: "12px Rock Salt",
+            fill: "white"
+            });
+        }
+
+        strikesText=game.add.text(100,200,"",{
+            font: "12px Rock Salt",
+            fill: "white"
+        });
+    
+        outsText=game.make.text(100,200,"",{
+            font: "12px Rock Salt",
+            fill: "white"
+        });
         
         // DO NOT CHANGE
         batterUpButton.anchor.setTo(0.5);
