@@ -55,6 +55,7 @@ var init = function () {
     var outsText;
     var inningteam1;
     var inningteam2;
+    var batterUpButton;
     
     // Preload assets
     // game.load.whatever functions
@@ -76,9 +77,9 @@ var init = function () {
         answerKeys[3] = game.input.keyboard.addKey(Phaser.Keyboard.D);
         
         // **Add diamond image to world; make it 800 by 600 - Moziah
-            baseballfield = game.add.image(0,0, 'baseballfield');
-            baseballfield.width = 800;
-            baseballfield.height = 600;
+        baseballfield = game.add.image(0,0, 'baseballfield');
+        baseballfield.width = 800;
+        baseballfield.height = 600;
         // **Use a loop to add 4 players to the players array - Brennen, Jackson
         // Scale them to a reasonable size
         // Set the visible property of each to false
@@ -91,11 +92,6 @@ var init = function () {
             players[i].visible = false;
             i = i + 1;
         }
-
-
-// var playersHide = function () {
-//     player.scale.setTo(-1);
-
 
         // **Add scoreboard image near top of screen - Calvin
         scoreboard = game.add.sprite(12,12,"scoreboard");
@@ -125,12 +121,9 @@ var init = function () {
         // **Add the batterup image to the center of the screen - Matthew
          //Store it in the batterUpButton
         
-        var batterUpButton = game.add.sprite(300, 300, 'batterup');
+        var batterUpButton = game.add.sprite(400, 300, 'batterup');
         batterUpButton.anchor.setTo(0.5);
-       
-   
-    
-        
+
         // ** Create text objects and position in appropriate - Andy, Josh
         // places on scoreboard. Use Rock Salt font
         inningteam1=[];
@@ -138,27 +131,27 @@ var init = function () {
 
         var x = 0, y = 0;  // for testing
         for (var i=0;i<10; i++) {
-            inningteam1[i]=game.add.text(x,y,"",{
-            font: "12px Rock Salt",
-            fill: "white"
+            inningteam1[i]=game.add.text(158+i*48,36,"0",{
+            font: "24px Rock Salt",
+            fill: "#ffffc2"
             });
         }
         
         for (var i=0;i<10; i++) {
-            inningteam2[i]=game.add.text(x,y,"",{
-            font: "12px Rock Salt",
-            fill: "white"
+            inningteam2[i]=game.add.text(158+i*48,78,"0",{
+            font: "24px Rock Salt",
+            fill: "#ffffc2"
             });
         }
 
-        strikesText=game.add.text(100,200,"",{
-            font: "12px Rock Salt",
-            fill: "white"
+        strikesText=game.add.text(700,34,"0",{
+            font: "22px Rock Salt",
+            fill: "#ffffc2"
         });
     
-        outsText=game.make.text(100,200,"",{
-            font: "12px Rock Salt",
-            fill: "white"
+        outsText=game.add.text(700,84,"0",{
+            font: "22px Rock Salt",
+            fill: "#ffffc2"
         });
         
         // DO NOT CHANGE
@@ -175,11 +168,7 @@ var init = function () {
     // etc.
     var update = function () {
         if (mode === 'newquestion') {
-            // **Call nextBatter, nextQuestion, and showPopup functions
-            // Set basesPossible to 4 and strikes to  0
-            // Loop to set eliminated property on answerKeys array
-            // to false
-            nextBatter();
+           nextBatter();
             nextQuestion();
             showPopup();
             basesPossible = 4;
@@ -211,7 +200,9 @@ var init = function () {
                 }
             }
             
-             // If  strikes is 3 call strikeOut
+            if (strikes === 3) {
+                strikeOut();
+            }
        }        
     };
                  
@@ -242,17 +233,11 @@ var init = function () {
                 }
             }
             eliminateAnswer(i);
-            // ** Add one to strikes and subtract one from - Jackson
-            // from basesPossible
             
-var inncorrect = function () {
-    var strikes = strike + 1;
-    var basesPossible = basesPossible - 1;
-}
-
-
-
-    };
+            strikes = strikes + 1;
+            basesPossible = basesPossible - 1;
+        };
+    }
     
     var runBases = function (nBases) {
         players[batter].base = 0;
@@ -294,9 +279,14 @@ var inncorrect = function () {
      * Both score for inning and total score
      * Call updateScoreBoard function
      */
-   {
     var scoreRun = function() {
-   if inning = 0  
+        if (team === 1) {
+            team1InningScores[inning] += 1;
+            team1InningScores += 1;
+        } else {
+            team2InningScores[inning] += 1;
+            team2InningScores += 1;
+        }
     };
     
     var eliminateAnswer = function (i) {
@@ -312,13 +302,11 @@ var inncorrect = function () {
      * Increase number of outs by 1
      * Call batterUp function
      */
-        {   var strikeout = function
-       };
+    var strikeOut = function () {
        outs = outs +1;
        batterUp();
-       
+    };
   
-    
     /**
      * Function should:
      * Update text objects for all innning scores,
@@ -338,7 +326,13 @@ var inncorrect = function () {
      * of home plate - base[0]
      */
     var nextBatter = function () {
-
+        for (batter = 0; batter < 4; batter++) {
+            if (players[batter].base === -1) {
+                players[batter].visible = true;
+                players[batter].x = base[0].x;
+                players[batter].y = base[0].y;
+            }
+        }
     };
     
     var nextQuestion = function () {
@@ -349,6 +343,7 @@ var inncorrect = function () {
         question = questions[i];
         questions.splice(i, 1);
         questions.push(question);
+        unusedQuestions -= 1;
         return true;
     };
     
@@ -385,7 +380,11 @@ var inncorrect = function () {
      * (but it would be nice if it could work on all)
      */
     var shuffle = function (a) {
-
+        for (var i = a.length - 1; a > 0; a--) {
+            var j = game.rnd.between(0, i);
+            a.push(a[j]);
+            a.splice(j, 1);
+        }
     };
     
     // Don't edit below here

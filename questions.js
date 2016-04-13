@@ -322,5 +322,6 @@ var questions = [
         a: "Richard 'Cannonball Dick' Redding",
         c: ["Pedro Sierra", "Herbert Simpson", "Eugene Scruggs"]
         
-    },
+    }
+];
     
