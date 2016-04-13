@@ -164,6 +164,7 @@ var questions = [
         a: "William Greason",
         c: ["John Miles", "James Ivory", "Max Manning"]
     },
+    
     {
         q: "She was the first woman to play in the Negro leagues, playing in 50 games and batting .243.",
         a: "Toni Stone",
@@ -298,5 +299,28 @@ var questions = [
         q: "After this player retired, he went to work in the construction industry for 30 years and was from Tampa, Florida",
         a: "Bernard Fernandez ",
         c: ["Jackie Robinson", "Tubby Scales", "Josh Gibson"]
-    }
-];    
+    },
+      {
+        q: "Charlie Grant pretended to be a pure-blooded Native American by taking on this nick name.",
+        a: "'Chief' Tokohama ",
+        c: ["Richard Redding", "Josh Gibson", "Tubby Scales"]
+        
+    },
+    {
+        q: "After this player retired, he went to work in the construction industry for 30 years and was from Tampa, Florida",
+        a: "Bernard Fernandez ",
+        c: ["Jackie Robinson", "Tubby Scales", "Josh Gibson"]
+    },
+    {
+        q: "This shortstop was the very first African American to make it in the professional baseball league.",
+        a: "Jackie Robinson",
+        c: ["John Miles", "James Ivory", "Max Manning"]
+        
+    },
+    {
+        q: "This great African American pitcher got the nickname 'Cannonball Dick' for his overpowering speed.",
+        a: "Richard 'Cannonball Dick' Redding",
+        c: ["Pedro Sierra", "Herbert Simpson", "Eugene Scruggs"]
+        
+    },
+    

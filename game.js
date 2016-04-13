@@ -60,12 +60,12 @@ var init = function () {
     // game.load.whatever functions
     var preload = function () {
         // **Preload all images - Nathan
-        game.load.image('baseballfield','assets/sprites/baseballfield.png')
-        game.load.image('batterup', "assets/sprites/batterup.png")
-        game.load.image('pinebutton','assets/sprites/pinebutton.png')
-        game.load.image('player','assets/sprites/player.png')
-        game.load.image('qboard','assets/sprites/qboard.png')
-        game.load.image('scoreboard','assets/sprites/scoreboard.png')
+        game.load.image('baseballfield','assets/images/baseballfield.png');
+        game.load.image('batterup', "assets/images/batterup.png");
+        game.load.image('pinebutton','assets/images/pinebutton.png');
+        game.load.image('player','assets/images/player.png');
+        game.load.image('qboard','assets/images/qboard.png');
+        game.load.image('scoreboard','assets/images/scoreboard.png');
     };
     
     // Draw initial screen
@@ -76,7 +76,9 @@ var init = function () {
         answerKeys[3] = game.input.keyboard.addKey(Phaser.Keyboard.D);
         
         // **Add diamond image to world; make it 800 by 600 - Moziah
-
+            baseballfield = game.add.image(0,0, 'baseballfield');
+            baseballfield.width = 800;
+            baseballfield.height = 600;
         // **Use a loop to add 4 players to the players array - Brennen, Jackson
         // Scale them to a reasonable size
         // Set the visible property of each to false
@@ -93,7 +95,7 @@ var init = function () {
 
 // var playersHide = function () {
 //     player.scale.setTo(-1);
-// }hhhh
+
 
         // **Add scoreboard image near top of screen - Calvin
         scoreboard = game.add.sprite(12,12,"scoreboard");
@@ -118,12 +120,15 @@ var init = function () {
             questionPopup.add(answerButtons[i]);
         }
         questionPopup.y = 160;
-        questionPopup.visible = false;
+        questionPopup.visible = false; 
         
         // **Add the batterup image to the center of the screen - Matthew
-        // Store it in the batterUpButton variables
-        var batterUpButton = game.add.sprite(400, 300, 'batterup');
+         //Store it in the batterUpButton
+        
+        var batterUpButton = game.add.sprite(300, 300, 'batterup');
         batterUpButton.anchor.setTo(0.5);
+       
+   
     
         
         // ** Create text objects and position in appropriate - Andy, Josh
@@ -179,8 +184,8 @@ var init = function () {
             showPopup();
             basesPossible = 4;
             strikes = 0;
-            for (var i = 0; i < 4; i++) {
-                answerKeys[i].eliminated = false;
+             for(var i = 0; i < 4; i++) {
+                answerKeys.eliminated = false;
             }
             
             // DO NOT CHANGE
@@ -206,7 +211,7 @@ var init = function () {
                 }
             }
             
-            // ** If strikes is 3 call strikeOut -Colby
+             // If  strikes is 3 call strikeOut
        }        
     };
                  
@@ -237,10 +242,16 @@ var init = function () {
                 }
             }
             eliminateAnswer(i);
-            // ** Add one to strikes and subtract one from
+            // ** Add one to strikes and subtract one from - Jackson
             // from basesPossible
+            
+var inncorrect = function () {
+    var strikes = strike + 1;
+    var basesPossible = basesPossible - 1;
+}
 
-        }
+
+
     };
     
     var runBases = function (nBases) {
@@ -283,7 +294,9 @@ var init = function () {
      * Both score for inning and total score
      * Call updateScoreBoard function
      */
+   {
     var scoreRun = function() {
+   if inning = 0  
     };
     
     var eliminateAnswer = function (i) {
@@ -299,8 +312,12 @@ var init = function () {
      * Increase number of outs by 1
      * Call batterUp function
      */
-    var strikeOut = function () {
-    };
+        {   var strikeout = function
+       };
+       outs = outs +1;
+       batterUp();
+       
+  
     
     /**
      * Function should:
@@ -439,3 +456,15 @@ AnswerButton.prototype.update = function () {
         }
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
