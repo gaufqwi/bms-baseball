@@ -60,12 +60,12 @@ var init = function () {
     // game.load.whatever functions
     var preload = function () {
         // **Preload all images - Nathan
-        game.load.image('baseballfield','assets/images/baseballfield.png')
-        game.load.image('batterup', "assets/images/batterup.png")
-        game.load.image('pinebutton','assets/images/pinebutton.png')
-        game.load.image('player','assets/images/player.png')
-        game.load.image('qboard','assets/images/qboard.png')
-        game.load.image('scoreboard','assets/images/scoreboard.png')
+        game.load.image('baseballfield','assets/sprites/baseballfield.png')
+        game.load.image('batterup', "assets/sprites/batterup.png")
+        game.load.image('pinebutton','assets/sprites/pinebutton.png')
+        game.load.image('player','assets/sprites/player.png')
+        game.load.image('qboard','assets/sprites/qboard.png')
+        game.load.image('scoreboard','assets/sprites/scoreboard.png')
     };
     
     // Draw initial screen
@@ -76,9 +76,6 @@ var init = function () {
         answerKeys[3] = game.input.keyboard.addKey(Phaser.Keyboard.D);
         
         // **Add diamond image to world; make it 800 by 600 - Moziah
-        var baseballfield = game.add.image(0, 0, 'baseballfield');
-        baseballfield.width = 800;
-        baseballfield.height = 600;
 
         // **Use a loop to add 4 players to the players array - Brennen, Jackson
         // Scale them to a reasonable size
@@ -303,8 +300,6 @@ var init = function () {
      * Call batterUp function
      */
     var strikeOut = function () {
-        outs += 1;
-        batterUp(); 
     };
     
     /**
