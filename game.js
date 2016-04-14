@@ -28,6 +28,7 @@ var init = function () {
     var questionText;
     var batterUp;
     var answerButtons = [];
+    var batterUpButton;
     
     // Variables for keyboard input;
     var answerKeys = [];
@@ -55,7 +56,6 @@ var init = function () {
     var outsText;
     var inningteam1;
     var inningteam2;
-    var batterUpButton;
     
     // Preload assets
     // game.load.whatever functions
@@ -89,6 +89,7 @@ var init = function () {
             players[i] = game.add.sprite(0,0,"player");
             players[i].scale.setTo(0.2);
             players[i].anchor.setTo(0.5);
+            players[i].base = -1;
             players[i].visible = false;
             i = i + 1;
         }
@@ -118,12 +119,6 @@ var init = function () {
         questionPopup.y = 160;
         questionPopup.visible = false; 
         
-        // **Add the batterup image to the center of the screen - Matthew
-         //Store it in the batterUpButton
-        
-        var batterUpButton = game.add.sprite(400, 300, 'batterup');
-        batterUpButton.anchor.setTo(0.5);
-
         // ** Create text objects and position in appropriate - Andy, Josh
         // places on scoreboard. Use Rock Salt font
         inningteam1=[];
@@ -131,14 +126,14 @@ var init = function () {
 
         var x = 0, y = 0;  // for testing
         for (var i=0;i<10; i++) {
-            inningteam1[i]=game.add.text(158+i*48,36,"0",{
+            inningteam1[i]=game.add.text(158+i*48,36,"",{
             font: "24px Rock Salt",
             fill: "#ffffc2"
             });
         }
         
         for (var i=0;i<10; i++) {
-            inningteam2[i]=game.add.text(158+i*48,78,"0",{
+            inningteam2[i]=game.add.text(158+i*48,78,"",{
             font: "24px Rock Salt",
             fill: "#ffffc2"
             });
@@ -155,6 +150,7 @@ var init = function () {
         });
         
         // DO NOT CHANGE
+        batterUpButton = game.add.image(400, 300, 'batterup');
         batterUpButton.anchor.setTo(0.5);
         batterUpButton.inputEnabled = true;
         batterUpButton.input.start(0, true);
@@ -168,11 +164,12 @@ var init = function () {
     // etc.
     var update = function () {
         if (mode === 'newquestion') {
-           nextBatter();
+            nextBatter();
             nextQuestion();
             showPopup();
             basesPossible = 4;
             strikes = 0;
+            updateScoreBoard();
              for(var i = 0; i < 4; i++) {
                 answerKeys.eliminated = false;
             }
@@ -233,7 +230,6 @@ var init = function () {
                 }
             }
             eliminateAnswer(i);
-            
             strikes = strikes + 1;
             basesPossible = basesPossible - 1;
         };
@@ -267,9 +263,11 @@ var init = function () {
             var tween = game.add.tween(player);
             tween.to(bases[nextbase], game.rnd.integerInRange(2300,2700), 'Linear', true, 500);
             tween.onComplete.addOnce(reachBase, this);
+        } else {
+            nRunners -= 1;
         }
         if (nRunners === 0) {
-            game.time.events.add(3000, batterUp);
+            game.time.events.add(1500, batterUp);
         }
     };
     
@@ -280,7 +278,7 @@ var init = function () {
      * Call updateScoreBoard function
      */
     var scoreRun = function() {
-        if (team === 1) {
+        if (teamAtBat === 1) {
             team1InningScores[inning] += 1;
             team1InningScores += 1;
         } else {
@@ -313,7 +311,14 @@ var init = function () {
      * total score, strikes, and outs
      */
     var updateScoreBoard = function () {
-        
+        strikesText.setText(strikes);
+        outsText.setText(outs);
+        for (var i = 0; i <= inning; i++) {
+            inningteam1[i].setText(team1InningScores[i]);
+            inningteam2[i].setText(team2InningScores[i]);
+        }
+        inningteam1[9].setText(team1TotalScore);
+        inningteam2[9].setText(team2TotalScore);
     };
     
     
@@ -326,13 +331,12 @@ var init = function () {
      * of home plate - base[0]
      */
     var nextBatter = function () {
-        for (batter = 0; batter < 4; batter++) {
-            if (players[batter].base === -1) {
-                players[batter].visible = true;
-                players[batter].x = base[0].x;
-                players[batter].y = base[0].y;
-            }
+        while (players[batter].base !== -1) {
+            batter = (batter + 1) % 4;
         }
+        players[batter].x = bases[0].x;
+        players[batter].y = bases[0].y;
+        players[batter].visible = true;
     };
     
     var nextQuestion = function () {
